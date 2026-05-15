@@ -85,11 +85,7 @@
   .about-img-frame { background: linear-gradient(135deg, var(--bg3), var(--bg2)); border: 1px solid var(--border2); border-radius: 20px; padding: 2rem; position: relative; overflow: hidden; }
   .about-img-frame::before { content: ''; position: absolute; top: -50%; right: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 70% 30%, rgba(79,142,255,0.08), transparent 60%); pointer-events: none; }
   .code-block { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; line-height: 1.8; }
-  .code-kw { color: var(--purple); }
-  .code-fn { color: var(--accent2); }
-  .code-str { color: var(--green); }
-  .code-num { color: var(--orange); }
-  .code-cm { color: var(--muted); }
+  .code-kw { color: var(--purple); } .code-fn { color: var(--accent2); } .code-str { color: var(--green); } .code-num { color: var(--orange); } .code-cm { color: var(--muted); }
   #skills { padding: 6rem 0; }
   .skills-header { text-align: center; margin-bottom: 4rem; }
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -97,7 +93,7 @@
   .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0; transition: opacity 0.3s; }
   .skill-card:hover { border-color: var(--border2); transform: translateY(-4px); }
   .skill-card:hover::before { opacity: 1; }
-  .skill-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1rem; }
+  .skill-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; color: var(--accent2); margin-bottom: 1rem; }
   .skill-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
   .skill-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
   .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -134,13 +130,10 @@
   .link-live:hover { background: var(--accent2); }
   .link-github { background: transparent; color: var(--text); border: 1px solid var(--border2); }
   .link-github:hover { border-color: var(--accent); color: var(--accent); }
-
-  /* Small project cards */
   .projects-grid-sm { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1rem; }
   .project-card-sm { background: var(--bg3); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; transition: border-color 0.3s, transform 0.3s; }
   .project-card-sm:hover { border-color: var(--border2); transform: translateY(-4px); }
   .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1.5rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--border); }
-
   #contact { padding: 8rem 0; }
   .contact-inner { max-width: 700px; margin: 0 auto; text-align: center; }
   .contact-title { font-family: 'Syne', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1rem; }
@@ -148,7 +141,6 @@
   .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
   .contact-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-size: 0.88rem; font-weight: 500; transition: all 0.2s; }
   .contact-card:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
-  .contact-icon { font-size: 1.1rem; }
   footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; color: var(--muted); font-size: 0.8rem; }
   .section-divider { width: 60px; height: 3px; background: linear-gradient(90deg, var(--accent), var(--purple)); border-radius: 3px; margin-bottom: 1.2rem; }
   .orb { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; z-index: 0; }
@@ -157,22 +149,16 @@
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
   @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr 1fr; }
-    .project-card { grid-template-columns: 1fr; }
-    .project-card.reverse { direction: ltr; }
-    .projects-grid-sm { grid-template-columns: 1fr; }
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { display: none; }
+    .hero-inner { grid-template-columns: 1fr; } .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; } .skills-grid { grid-template-columns: 1fr 1fr; }
+    .project-card { grid-template-columns: 1fr; } .project-card.reverse { direction: ltr; }
+    .projects-grid-sm { grid-template-columns: 1fr; } nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
   }
 </style>
 </head>
 <body>
 <div class="grid-bg"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-brand">Hart<span>.</span></div>
   <ul class="nav-links">
@@ -216,9 +202,9 @@
           </div>
         </div>
         <div class="hero-card hero-card-sm1">
-          <div class="card-label">ChurnGuard AI</div>
-          <div class="mini-stat"><span class="mini-label">ROC-AUC</span><span class="mini-val">0.843</span></div>
-          <div class="mini-stat"><span class="mini-label">F1 Score</span><span class="mini-val">0.613</span></div>
+          <div class="card-label">SentimentIQ</div>
+          <div class="mini-stat"><span class="mini-label">Accuracy</span><span class="mini-val">77.7%</span></div>
+          <div class="mini-stat"><span class="mini-label">Tweets</span><span class="mini-val">1.6M</span></div>
           <div class="mini-stat"><span class="mini-label">Status</span><span class="badge-sm badge-green">Live</span></div>
         </div>
         <div class="hero-card hero-card-sm2">
@@ -239,15 +225,15 @@
         <p class="section-eyebrow">// about me</p>
         <div class="section-divider"></div>
         <h2 class="section-title">Turning data into decisions</h2>
-        <p class="about-text">I am a Data Scientist and ML Engineer with a passion for building systems that go beyond Jupyter notebooks — from exploratory analysis all the way to deployed, production-ready applications.</p>
-        <p class="about-text">My work covers supervised and unsupervised learning, extreme class imbalance, cost-sensitive model evaluation, RFM customer segmentation, and SHAP explainability. I believe every prediction should be understandable by the people who act on it.</p>
-        <p class="about-text">I also contributed to the Omdena global data science community, analysing the impact of Nigeria's price surge on citizens' income and expenditure using real economic data.</p>
-        <p class="about-text">Based in Lagos, Nigeria. Open to remote opportunities worldwide.</p>
+        <p class="about-text">I am a Data Scientist and ML Engineer with a background in Civil Engineering — combining analytical reasoning and technical expertise to solve real-world problems using data.</p>
+        <p class="about-text">My work covers supervised and unsupervised learning, NLP, computer vision, extreme class imbalance, cost-sensitive model evaluation, and SHAP explainability. I believe every prediction should be understandable by the people who act on it.</p>
+        <p class="about-text">Currently a Data Scientist at PSP Analytics Ltd, where I build computer vision models using transfer learning (ResNet) and lead end-to-end ML pipelines. I also contributed to the Omdena global data science community, building preprocessing pipelines for Nigeria's economic price surge analysis.</p>
+        <p class="about-text">Pursuing an MSc in Financial Engineering at WorldQuant University. Based in Cross River State, Nigeria. Open to remote opportunities worldwide.</p>
         <div class="about-stats">
-          <div class="stat-box"><div class="stat-num">5+</div><div class="stat-desc">Projects built and deployed</div></div>
-          <div class="stat-box"><div class="stat-num">1M+</div><div class="stat-desc">Transactions analysed</div></div>
+          <div class="stat-box"><div class="stat-num">5+</div><div class="stat-desc">End-to-end ML projects deployed</div></div>
+          <div class="stat-box"><div class="stat-num">500+</div><div class="stat-desc">Students mentored in ML/AI (3MTT)</div></div>
+          <div class="stat-box"><div class="stat-num">1M+</div><div class="stat-desc">Records processed across projects</div></div>
           <div class="stat-box"><div class="stat-num">3</div><div class="stat-desc">Live production deployments</div></div>
-          <div class="stat-box"><div class="stat-num">100%</div><div class="stat-desc">End-to-end project ownership</div></div>
         </div>
       </div>
       <div>
@@ -257,14 +243,15 @@
 <span class="code-kw">from</span> sklearn.pipeline <span class="code-kw">import</span> Pipeline<br>
 <span class="code-kw">from</span> xgboost <span class="code-kw">import</span> XGBClassifier<br>
 <span class="code-kw">from</span> sklearn.cluster <span class="code-kw">import</span> KMeans<br>
+<span class="code-kw">from</span> sklearn.svm <span class="code-kw">import</span> LinearSVC<br>
 <span class="code-kw">import</span> shap<br><br>
 <span class="code-cm"># Supervised: fraud detection</span><br>
 <span class="code-kw">def</span> <span class="code-fn">detect_fraud</span>(X_train, y_train):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ratio = len(y_train[y_train==<span class="code-num">0</span>]) / len(y_train[y_train==<span class="code-num">1</span>])<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> XGBClassifier(scale_pos_weight=ratio).fit(X_train, y_train)<br><br>
-<span class="code-cm"># Unsupervised: customer segments</span><br>
-<span class="code-kw">def</span> <span class="code-fn">segment_customers</span>(rfm_scaled):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> KMeans(n_clusters=<span class="code-num">2</span>).fit(rfm_scaled)<br><br>
+<span class="code-cm"># NLP: sentiment analysis</span><br>
+<span class="code-kw">def</span> <span class="code-fn">classify_sentiment</span>(X_tfidf, y):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> LinearSVC(C=<span class="code-num">0.1</span>).fit(X_tfidf, y)<br><br>
 <span class="code-cm"># Result: 5 projects, 3 live deployments</span>
           </div>
         </div>
@@ -283,40 +270,40 @@
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(79,142,255,0.15)">🤖</div>
+        <div class="skill-icon" style="background:rgba(79,142,255,0.15)">ML</div>
         <div class="skill-name">Machine Learning</div>
         <div class="skill-desc">Supervised and unsupervised learning, model selection, hyperparameter tuning, and cross-validation.</div>
-        <div class="skill-tags"><span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">K-Means</span><span class="tag">Isolation Forest</span></div>
+        <div class="skill-tags"><span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">K-Means</span><span class="tag">Random Forest</span></div>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(0,229,160,0.15)">📊</div>
+        <div class="skill-icon" style="background:rgba(0,229,160,0.15)">DA</div>
         <div class="skill-name">Data Analysis</div>
         <div class="skill-desc">Exploratory analysis, RFM feature engineering, imbalanced datasets, and statistical insight extraction.</div>
         <div class="skill-tags"><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">SHAP</span><span class="tag">Plotly</span></div>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(168,85,247,0.15)">⚡</div>
+        <div class="skill-icon" style="background:rgba(168,85,247,0.15)">NLP</div>
+        <div class="skill-name">NLP</div>
+        <div class="skill-desc">Text classification, TF-IDF vectorisation, n-gram analysis, and sentiment analysis on large tweet corpora.</div>
+        <div class="skill-tags"><span class="tag">NLTK</span><span class="tag">TF-IDF</span><span class="tag">LinearSVC</span><span class="tag">WordCloud</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon" style="background:rgba(255,122,53,0.15)">MLE</div>
         <div class="skill-name">ML Engineering</div>
         <div class="skill-desc">End-to-end pipelines from data ingestion to deployed APIs with experiment tracking and versioning.</div>
         <div class="skill-tags"><span class="tag">FastAPI</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">joblib</span></div>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(255,122,53,0.15)">🎯</div>
-        <div class="skill-name">Imbalanced Learning</div>
-        <div class="skill-desc">Cost-sensitive modelling, threshold optimisation, and resampling for extreme class imbalance problems.</div>
-        <div class="skill-tags"><span class="tag">SMOTE</span><span class="tag">ADASYN</span><span class="tag">PR-AUC</span><span class="tag">SMOTETomek</span></div>
-      </div>
-      <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(79,142,255,0.15)">🚀</div>
+        <div class="skill-icon" style="background:rgba(79,142,255,0.15)">DEP</div>
         <div class="skill-name">Deployment</div>
         <div class="skill-desc">Building and deploying interactive ML dashboards and REST APIs on Streamlit Cloud and Hugging Face Spaces.</div>
         <div class="skill-tags"><span class="tag">Streamlit</span><span class="tag">FastAPI</span><span class="tag">HF Spaces</span><span class="tag">GitHub Pages</span></div>
       </div>
       <div class="skill-card reveal">
-        <div class="skill-icon" style="background:rgba(0,229,160,0.15)">🔍</div>
-        <div class="skill-name">Explainability</div>
-        <div class="skill-desc">Model transparency using SHAP values, waterfall plots, snake plots, and feature dependence analysis.</div>
-        <div class="skill-tags"><span class="tag">SHAP</span><span class="tag">TreeExplainer</span><span class="tag">Snake Plot</span><span class="tag">t-SNE</span></div>
+        <div class="skill-icon" style="background:rgba(0,229,160,0.15)">DL</div>
+        <div class="skill-name">Deep Learning</div>
+        <div class="skill-desc">Transfer learning with pre-trained architectures, fine-tuning on custom datasets for image classification.</div>
+        <div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">ResNet</span><span class="tag">Hugging Face</span></div>
       </div>
     </div>
   </div>
@@ -443,7 +430,7 @@
         <div class="project-num">03 / CUSTOMER SEGMENTATION</div>
         <h3 class="project-title">SegmentIQ</h3>
         <p class="project-sub">K-Means + RFM Analysis + PCA + Streamlit + Docker</p>
-        <p class="project-desc">Unsupervised customer segmentation of 1M+ retail transactions using RFM analysis. Discovers Champions generating 10x more revenue than Lapsed Customers. Includes an interactive reactivation revenue calculator.</p>
+        <p class="project-desc">Unsupervised customer segmentation of 1M+ retail transactions using RFM analysis. Discovers Champions generating 10x more revenue than Lapsed Customers. Includes interactive reactivation revenue calculator.</p>
         <div class="project-metrics">
           <div class="pm-box"><div class="pm-val">0.439</div><div class="pm-lbl">Silhouette</div></div>
           <div class="pm-box"><div class="pm-val">5,878</div><div class="pm-lbl">Customers</div></div>
@@ -457,39 +444,67 @@
       </div>
     </div>
 
+    <!-- SentimentIQ -->
+    <div class="project-card reverse reveal">
+      <div class="project-visual">
+        <div class="proj-mockup">
+          <div class="proj-mockup-bar">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:8px">sentimentiq — analyse tweet</span>
+          </div>
+          <div style="text-align:center;padding:0.6rem 0 0.4rem">
+            <div style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem">SENTIMENT RESULT</div>
+            <div style="font-size:2rem;margin-bottom:0.3rem">😊</div>
+            <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--green)">Positive</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:0.2rem">Confidence: <span style="color:var(--green);font-weight:600">91.2%</span></div>
+          </div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Model</span><span style="color:var(--accent2);font-size:0.72rem;font-weight:500">Linear SVM</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Accuracy</span><span style="color:var(--green);font-size:0.72rem;font-weight:600">77.7%</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Vocabulary</span><span style="color:var(--text);font-size:0.72rem">50K features</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">04 / NLP / SENTIMENT ANALYSIS</div>
+        <h3 class="project-title">SentimentIQ</h3>
+        <p class="project-sub">TF-IDF + LinearSVC + NLTK + Streamlit + Docker</p>
+        <p class="project-desc">Twitter sentiment classification on 1.6 million tweets using TF-IDF vectorisation and classic ML. Compares Logistic Regression, Naive Bayes, and Linear SVM. Includes batch analysis, word coefficient insights, and single tweet scoring.</p>
+        <div class="project-metrics">
+          <div class="pm-box"><div class="pm-val">77.7%</div><div class="pm-lbl">Accuracy</div></div>
+          <div class="pm-box"><div class="pm-val">1.6M</div><div class="pm-lbl">Tweets</div></div>
+          <div class="pm-box"><div class="pm-val">50K</div><div class="pm-lbl">Features</div></div>
+        </div>
+        <div class="project-stack"><span class="tag">TF-IDF</span><span class="tag">LinearSVC</span><span class="tag">NLTK</span><span class="tag">Naive Bayes</span><span class="tag">Streamlit</span><span class="tag">Docker</span></div>
+        <div class="project-links">
+          <a href="https://huggingface.co/spaces/Demerchanthart/sentimentiq" target="_blank" class="link-btn link-live">Live Demo</a>
+          <a href="https://github.com/Hartyplaza/sentimentiq" target="_blank" class="link-btn link-github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Other Projects -->
     <div style="margin-top:3rem" class="reveal">
       <p class="section-label">// other projects</p>
       <div class="projects-grid-sm">
-
-        <!-- Nigeria Price Surge -->
         <div class="project-card-sm">
-          <div class="project-num">04 / DATA ANALYSIS</div>
+          <div class="project-num">05 / DATA ANALYSIS</div>
           <h3 class="project-title" style="font-size:1.2rem">Nigeria Price Surge Analysis</h3>
           <p class="project-sub">Omdena Collaborative Project · Streamlit</p>
-          <p class="project-desc">Analysed the surge in prices across Nigeria and its economic impact on citizens' income, expenditures, and savings. Examined essential sectors including food, transportation, healthcare, and Naira-Dollar exchange rate movements to provide data-driven insights for stakeholders and policymakers.</p>
-          <div class="project-stack">
-            <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Plotly</span><span class="tag">Streamlit</span><span class="tag">Omdena</span>
-          </div>
+          <p class="project-desc">Analysed the surge in prices across Nigeria and its economic impact on citizens' income, expenditures, and savings. Examined food, transportation, healthcare, and Naira-Dollar exchange rate movements to provide data-driven insights for stakeholders and policymakers.</p>
+          <div class="project-stack"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">Plotly</span><span class="tag">Streamlit</span><span class="tag">Omdena</span></div>
           <div class="project-links" style="margin-top:1rem">
             <a href="https://omdenakaduna-price-surge-nigerian-economy.streamlit.app/" target="_blank" class="link-btn link-live">Live Demo</a>
           </div>
         </div>
-
-        <!-- Python Tutorial -->
         <div class="project-card-sm">
-          <div class="project-num">05 / EDUCATION</div>
+          <div class="project-num">06 / EDUCATION</div>
           <h3 class="project-title" style="font-size:1.2rem">Python Beginners Tutorial</h3>
           <p class="project-sub">Comprehensive Learning Guide · Jupyter Notebook</p>
-          <p class="project-desc">A structured, beginner-friendly guide to Python programming covering syntax, data types, control flow, functions, and error handling. Demonstrates the ability to simplify complex technical topics, organise educational content effectively, and communicate programming concepts with clarity.</p>
-          <div class="project-stack">
-            <span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">Teaching</span><span class="tag">Documentation</span>
-          </div>
+          <p class="project-desc">A structured, beginner-friendly guide to Python programming covering syntax, data types, control flow, functions, and error handling. Built to support mentoring activities — over 500 students trained in ML and AI through the 3MTT programme.</p>
+          <div class="project-stack"><span class="tag">Python</span><span class="tag">Jupyter</span><span class="tag">Teaching</span><span class="tag">Documentation</span></div>
           <div class="project-links" style="margin-top:1rem">
             <a href="https://github.com/Hartyplaza/Python-Beginners-Tutorial" target="_blank" class="link-btn link-github">GitHub</a>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -505,9 +520,9 @@
       <h2 class="contact-title">Let's build something together</h2>
       <p class="contact-sub">I am open to full-time roles, freelance projects, and collaborations. If you have a data problem that needs solving, let's talk.</p>
       <div class="contact-links">
-        <a href="https://www.linkedin.com/in/hart-ofigwe" target="_blank" class="contact-card"><span class="contact-icon">💼</span> LinkedIn</a>
-        <a href="https://github.com/Hartyplaza" target="_blank" class="contact-card"><span class="contact-icon">💻</span> GitHub</a>
-        <a href="mailto:ofigwehart@gmail.com" class="contact-card"><span class="contact-icon">✉️</span> Email</a>
+        <a href="https://www.linkedin.com/in/hart-ofigwe" target="_blank" class="contact-card">💼 LinkedIn</a>
+        <a href="https://github.com/Hartyplaza" target="_blank" class="contact-card">💻 GitHub</a>
+        <a href="mailto:ofigwehart@gmail.com" class="contact-card">✉️ Email</a>
       </div>
       <a href="https://github.com/Hartyplaza" target="_blank" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem">View All Projects on GitHub</a>
     </div>
@@ -515,7 +530,7 @@
 </section>
 
 <footer>
-  <p>Built by Ofigwe Hart &nbsp;·&nbsp; Data Scientist / ML Engineer &nbsp;·&nbsp; Lagos, Nigeria</p>
+  <p>Built by Ofigwe Hart &nbsp;·&nbsp; Data Scientist / ML Engineer &nbsp;·&nbsp; Cross River State, Nigeria</p>
 </footer>
 
 <script>
