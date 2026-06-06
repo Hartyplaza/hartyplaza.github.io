@@ -158,7 +158,6 @@
 </head>
 <body>
 <div class="grid-bg"></div>
-
 <nav>
   <div class="nav-brand">Hart<span>.</span></div>
   <ul class="nav-links">
@@ -188,8 +187,8 @@
       </div>
       <div class="hero-visual">
         <div class="hero-card hero-card-main">
-          <div class="card-label">FraudShield AI — Live</div>
-          <div class="card-metric">0.83</div>
+          <div class="card-label">FraudShield V2 — Live</div>
+          <div class="card-metric">0.9287</div>
           <div class="card-sub">PR-AUC Score</div>
           <div class="card-bars">
             <div class="bar" style="height:60%;background:var(--purple)"></div>
@@ -202,9 +201,9 @@
           </div>
         </div>
         <div class="hero-card hero-card-sm1">
-          <div class="card-label">SentimentIQ</div>
-          <div class="mini-stat"><span class="mini-label">Accuracy</span><span class="mini-val">77.7%</span></div>
-          <div class="mini-stat"><span class="mini-label">Tweets</span><span class="mini-val">1.6M</span></div>
+          <div class="card-label">VoiceOfBank</div>
+          <div class="mini-stat"><span class="mini-label">Accuracy</span><span class="mini-val">93.6%</span></div>
+          <div class="mini-stat"><span class="mini-label">Reviews</span><span class="mini-val">30K</span></div>
           <div class="mini-stat"><span class="mini-label">Status</span><span class="badge-sm badge-green">Live</span></div>
         </div>
         <div class="hero-card hero-card-sm2">
@@ -230,10 +229,10 @@
         <p class="about-text">Currently a Data Scientist at PSP Analytics Ltd, where I build computer vision models using transfer learning (ResNet) and lead end-to-end ML pipelines. I also contributed to the Omdena global data science community, building preprocessing pipelines for Nigeria's economic price surge analysis.</p>
         <p class="about-text">Pursuing an MSc in Financial Engineering at WorldQuant University. Based in Cross River State, Nigeria. Open to remote opportunities worldwide.</p>
         <div class="about-stats">
-          <div class="stat-box"><div class="stat-num">5+</div><div class="stat-desc">End-to-end ML projects deployed</div></div>
+          <div class="stat-box"><div class="stat-num">8+</div><div class="stat-desc">End-to-end ML projects deployed</div></div>
           <div class="stat-box"><div class="stat-num">500+</div><div class="stat-desc">Students mentored in ML/AI (3MTT)</div></div>
           <div class="stat-box"><div class="stat-num">1M+</div><div class="stat-desc">Records processed across projects</div></div>
-          <div class="stat-box"><div class="stat-num">3</div><div class="stat-desc">Live production deployments</div></div>
+          <div class="stat-box"><div class="stat-num">5</div><div class="stat-desc">Live production deployments</div></div>
         </div>
       </div>
       <div>
@@ -242,17 +241,17 @@
 <span class="code-cm"># End-to-end ML — from data to production</span><br><br>
 <span class="code-kw">from</span> sklearn.pipeline <span class="code-kw">import</span> Pipeline<br>
 <span class="code-kw">from</span> xgboost <span class="code-kw">import</span> XGBClassifier<br>
-<span class="code-kw">from</span> sklearn.cluster <span class="code-kw">import</span> KMeans<br>
-<span class="code-kw">from</span> sklearn.svm <span class="code-kw">import</span> LinearSVC<br>
+<span class="code-kw">from</span> transformers <span class="code-kw">import</span> AutoModelForSequenceClassification<br>
+<span class="code-kw">from</span> bertopic <span class="code-kw">import</span> BERTopic<br>
 <span class="code-kw">import</span> shap<br><br>
-<span class="code-cm"># Supervised: fraud detection</span><br>
-<span class="code-kw">def</span> <span class="code-fn">detect_fraud</span>(X_train, y_train):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;ratio = len(y_train[y_train==<span class="code-num">0</span>]) / len(y_train[y_train==<span class="code-num">1</span>])<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> XGBClassifier(scale_pos_weight=ratio).fit(X_train, y_train)<br><br>
-<span class="code-cm"># NLP: sentiment analysis</span><br>
-<span class="code-kw">def</span> <span class="code-fn">classify_sentiment</span>(X_tfidf, y):<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> LinearSVC(C=<span class="code-num">0.1</span>).fit(X_tfidf, y)<br><br>
-<span class="code-cm"># Result: 5 projects, 3 live deployments</span>
+<span class="code-cm"># Fraud detection — multi-format log parsing</span><br>
+<span class="code-kw">def</span> <span class="code-fn">detect_fraud</span>(raw_logs):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;parsed = parse_7_formats(raw_logs)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> XGBClassifier().fit(engineer_features(parsed))<br><br>
+<span class="code-cm"># NLP — fine-tuned RoBERTa on bank reviews</span><br>
+<span class="code-kw">def</span> <span class="code-fn">classify_sentiment</span>(review):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> roberta_pipeline(review, confidence=<span class="code-num">0.936</span>)<br><br>
+<span class="code-cm"># Result: 8 projects, 5 live deployments</span>
           </div>
         </div>
       </div>
@@ -273,7 +272,7 @@
         <div class="skill-icon" style="background:rgba(79,142,255,0.15)">ML</div>
         <div class="skill-name">Machine Learning</div>
         <div class="skill-desc">Supervised and unsupervised learning, model selection, hyperparameter tuning, and cross-validation.</div>
-        <div class="skill-tags"><span class="tag">XGBoost</span><span class="tag">scikit-learn</span><span class="tag">K-Means</span><span class="tag">Random Forest</span></div>
+        <div class="skill-tags"><span class="tag">XGBoost</span><span class="tag">LightGBM</span><span class="tag">scikit-learn</span><span class="tag">Random Forest</span></div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon" style="background:rgba(0,229,160,0.15)">DA</div>
@@ -283,9 +282,9 @@
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon" style="background:rgba(168,85,247,0.15)">NLP</div>
-        <div class="skill-name">NLP</div>
-        <div class="skill-desc">Text classification, TF-IDF vectorisation, n-gram analysis, and sentiment analysis on large tweet corpora.</div>
-        <div class="skill-tags"><span class="tag">NLTK</span><span class="tag">TF-IDF</span><span class="tag">LinearSVC</span><span class="tag">WordCloud</span></div>
+        <div class="skill-name">NLP & Transformers</div>
+        <div class="skill-desc">Sentiment analysis, topic modelling, fine-tuned RoBERTa, BERTopic, and TF-IDF classification pipelines.</div>
+        <div class="skill-tags"><span class="tag">RoBERTa</span><span class="tag">BERTopic</span><span class="tag">NLTK</span><span class="tag">HuggingFace</span></div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-icon" style="background:rgba(255,122,53,0.15)">MLE</div>
@@ -302,7 +301,7 @@
       <div class="skill-card reveal">
         <div class="skill-icon" style="background:rgba(0,229,160,0.15)">DL</div>
         <div class="skill-name">Deep Learning</div>
-        <div class="skill-desc">Transfer learning with pre-trained architectures, fine-tuning on custom datasets for image classification.</div>
+        <div class="skill-desc">Transfer learning with pre-trained architectures, fine-tuning on custom datasets for image and text classification.</div>
         <div class="skill-tags"><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">ResNet</span><span class="tag">Hugging Face</span></div>
       </div>
     </div>
@@ -318,7 +317,7 @@
       <h2 class="section-title">End-to-end ML systems</h2>
     </div>
 
-    <!-- FraudShield -->
+    <!-- FraudShield (original) -->
     <div class="project-card reveal">
       <div class="project-visual">
         <div class="proj-mockup">
@@ -454,7 +453,6 @@
           </div>
           <div style="text-align:center;padding:0.6rem 0 0.4rem">
             <div style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem">SENTIMENT RESULT</div>
-            <div style="font-size:2rem;margin-bottom:0.3rem">😊</div>
             <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--green)">Positive</div>
             <div style="font-size:0.78rem;color:var(--muted);margin-top:0.2rem">Confidence: <span style="color:var(--green);font-weight:600">91.2%</span></div>
           </div>
@@ -481,12 +479,135 @@
       </div>
     </div>
 
+    <!-- FraudShield V2 -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="proj-mockup">
+          <div class="proj-mockup-bar">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:8px">fraudshield v2 — live feed</span>
+          </div>
+          <div class="proj-chart-row">
+            <div class="proj-bar" style="height:20%;background:var(--green)"></div>
+            <div class="proj-bar" style="height:15%;background:var(--green)"></div>
+            <div class="proj-bar" style="height:95%;background:var(--red)"></div>
+            <div class="proj-bar" style="height:20%;background:var(--green)"></div>
+            <div class="proj-bar" style="height:10%;background:var(--green)"></div>
+            <div class="proj-bar" style="height:88%;background:var(--red)"></div>
+            <div class="proj-bar" style="height:15%;background:var(--green)"></div>
+            <div class="proj-bar" style="height:70%;background:var(--orange)"></div>
+            <div class="proj-bar" style="height:25%;background:var(--green)"></div>
+          </div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem;font-family:'JetBrains Mono',monospace">TXN-009821</span><span style="color:var(--text);font-size:0.72rem">£4,821.50</span><span style="color:var(--red);font-size:0.72rem;font-weight:600">99.9%</span><span class="badge-sm" style="background:rgba(255,69,96,0.15);color:var(--red);border:1px solid rgba(255,69,96,0.3);font-size:0.65rem">Block</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem;font-family:'JetBrains Mono',monospace">TXN-009822</span><span style="color:var(--text);font-size:0.72rem">£43.20</span><span style="color:var(--green);font-size:0.72rem;font-weight:600">1.2%</span><span class="badge-sm badge-green" style="font-size:0.65rem">Clear</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem;font-family:'JetBrains Mono',monospace">TXN-009823</span><span style="color:var(--text);font-size:0.72rem">£312.00</span><span style="color:var(--orange);font-size:0.72rem;font-weight:600">67.3%</span><span class="badge-sm badge-orange" style="font-size:0.65rem">Verify</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">05 / FRAUD DETECTION</div>
+        <h3 class="project-title">FraudShield V2</h3>
+        <p class="project-sub">LightGBM + ADASYN + SHAP + FastAPI + Streamlit</p>
+        <p class="project-desc">End-to-end fraud detection on 10,000 raw multi-format transaction logs spanning 7 distinct log schemas. Built a custom regex parser, deterministic fraud label simulation, 28 engineered features, and a production API with per-transaction SHAP explanations. Net business benefit of £221,727 on the test set.</p>
+        <div class="project-metrics">
+          <div class="pm-box"><div class="pm-val">0.9287</div><div class="pm-lbl">PR-AUC</div></div>
+          <div class="pm-box"><div class="pm-val">98.1%</div><div class="pm-lbl">Recall</div></div>
+          <div class="pm-box"><div class="pm-val">£221K</div><div class="pm-lbl">Net Benefit</div></div>
+        </div>
+        <div class="project-stack"><span class="tag">LightGBM</span><span class="tag">ADASYN</span><span class="tag">SHAP</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span><span class="tag">XGBoost</span></div>
+        <div class="project-links">
+          <a href="https://huggingface.co/spaces/Demerchanthart/FraudShield_V2" target="_blank" class="link-btn link-live">Live Demo</a>
+          <a href="https://github.com/Hartyplaza/FraudShield_V2" target="_blank" class="link-btn link-github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VoiceOfBank -->
+    <div class="project-card reverse reveal">
+      <div class="project-visual">
+        <div class="proj-mockup">
+          <div class="proj-mockup-bar">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:8px">voiceofbank — sentiment</span>
+          </div>
+          <div style="text-align:center;padding:0.6rem 0 0.4rem">
+            <div style="font-size:0.65rem;color:var(--muted);font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem">LIVE CLASSIFIER</div>
+            <div style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--red)">Negative</div>
+            <div style="font-size:0.78rem;color:var(--muted);margin-top:0.2rem">RoBERTa: <span style="color:var(--red);font-weight:600">98.5%</span> &nbsp;|&nbsp; XGBoost: <span style="color:var(--red);font-weight:600">86.9%</span></div>
+          </div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Starling (Challenger)</span><span style="color:var(--green);font-size:0.72rem;font-weight:600">9.9% negative</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">HSBC (Traditional)</span><span style="color:var(--red);font-size:0.72rem;font-weight:600">48.3% negative</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Model Agreement</span><span style="color:var(--green);font-size:0.72rem;font-weight:500">Agree</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">06 / NLP / SENTIMENT</div>
+        <h3 class="project-title">VoiceOfBank</h3>
+        <p class="project-sub">RoBERTa + LDA + BERTopic + FastAPI + Streamlit</p>
+        <p class="project-desc">Customer voice intelligence from 30,000 UK bank app reviews across 6 banks. Full NLP pipeline: VADER baseline, zero-shot RoBERTa, LDA topic modelling, BERTopic, and fine-tuned RoBERTa classifier. Key finding: HSBC has 48.3% negative reviews vs Starling's 9.9% — the divide is investment in mobile infrastructure, not bank age.</p>
+        <div class="project-metrics">
+          <div class="pm-box"><div class="pm-val">93.6%</div><div class="pm-lbl">Accuracy</div></div>
+          <div class="pm-box"><div class="pm-val">0.708</div><div class="pm-lbl">Macro F1</div></div>
+          <div class="pm-box"><div class="pm-val">30K</div><div class="pm-lbl">Reviews</div></div>
+        </div>
+        <div class="project-stack"><span class="tag">RoBERTa</span><span class="tag">BERTopic</span><span class="tag">LDA</span><span class="tag">XGBoost</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span></div>
+        <div class="project-links">
+          <a href="https://huggingface.co/spaces/Demerchanthart/VoiceOfBank" target="_blank" class="link-btn link-live">Live Demo</a>
+          <a href="https://github.com/Hartyplaza/VoiceOfBank" target="_blank" class="link-btn link-github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bank Customer Loyalty -->
+    <div class="project-card reveal">
+      <div class="project-visual">
+        <div class="proj-mockup">
+          <div class="proj-mockup-bar">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:8px">loyalty — path model</span>
+          </div>
+          <div style="padding:0.8rem 0 0.6rem">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.8rem">
+              <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.62rem;color:var(--accent2);font-family:'JetBrains Mono',monospace;text-align:center">Trust</div>
+              <div style="flex:1;margin:0 0.3rem;position:relative">
+                <div style="height:1px;background:var(--accent)"></div>
+                <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;color:var(--accent);white-space:nowrap">b=0.835</div>
+              </div>
+              <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.62rem;color:var(--accent2);font-family:'JetBrains Mono',monospace;text-align:center">Satisfaction</div>
+              <div style="flex:1;margin:0 0.3rem;position:relative">
+                <div style="height:1px;background:var(--green)"></div>
+                <div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);font-size:0.58rem;color:var(--green);white-space:nowrap">b=0.682</div>
+              </div>
+              <div style="background:var(--bg2);border:1px solid rgba(0,229,160,0.4);border-radius:6px;padding:0.3rem 0.5rem;font-size:0.62rem;color:var(--green);font-family:'JetBrains Mono',monospace;text-align:center">Loyalty</div>
+            </div>
+          </div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Best Model</span><span style="color:var(--accent2);font-size:0.72rem;font-weight:500">XGBoost + SMOTE</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Macro F1</span><span style="color:var(--green);font-size:0.72rem;font-weight:600">0.555</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">SEM R² (Loyalty)</span><span style="color:var(--green);font-size:0.72rem;font-weight:600">0.67</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">07 / ML + RESEARCH</div>
+        <h3 class="project-title">Bank Customer Loyalty</h3>
+        <p class="project-sub">XGBoost + SMOTE + PLS-SEM + SHAP</p>
+        <p class="project-desc">Multi-output prediction of customer loyalty dimensions from German bank survey data (n=675). Compares XGBoost, Random Forest, and MLP classifiers against PLS-SEM structural equation modelling. Both SHAP and SEM path coefficients converge on Trust and Satisfaction as the top loyalty drivers — confirming both paradigms.</p>
+        <div class="project-metrics">
+          <div class="pm-box"><div class="pm-val">0.555</div><div class="pm-lbl">Macro F1</div></div>
+          <div class="pm-box"><div class="pm-val">0.67</div><div class="pm-lbl">SEM R²</div></div>
+          <div class="pm-box"><div class="pm-val">675</div><div class="pm-lbl">Respondents</div></div>
+        </div>
+        <div class="project-stack"><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">PLS-SEM</span><span class="tag">SHAP</span><span class="tag">scikit-learn</span><span class="tag">MLP</span></div>
+        <div class="project-links">
+          <a href="https://github.com/Hartyplaza/AI-Driven-Multi-Output-Prediction-of-Bank-Customer-Loyalty" target="_blank" class="link-btn link-github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Other Projects -->
     <div style="margin-top:3rem" class="reveal">
       <p class="section-label">// other projects</p>
       <div class="projects-grid-sm">
         <div class="project-card-sm">
-          <div class="project-num">05 / DATA ANALYSIS</div>
+          <div class="project-num">08 / DATA ANALYSIS</div>
           <h3 class="project-title" style="font-size:1.2rem">Nigeria Price Surge Analysis</h3>
           <p class="project-sub">Omdena Collaborative Project · Streamlit</p>
           <p class="project-desc">Analysed the surge in prices across Nigeria and its economic impact on citizens' income, expenditures, and savings. Examined food, transportation, healthcare, and Naira-Dollar exchange rate movements to provide data-driven insights for stakeholders and policymakers.</p>
@@ -496,7 +617,7 @@
           </div>
         </div>
         <div class="project-card-sm">
-          <div class="project-num">06 / EDUCATION</div>
+          <div class="project-num">09 / EDUCATION</div>
           <h3 class="project-title" style="font-size:1.2rem">Python Beginners Tutorial</h3>
           <p class="project-sub">Comprehensive Learning Guide · Jupyter Notebook</p>
           <p class="project-desc">A structured, beginner-friendly guide to Python programming covering syntax, data types, control flow, functions, and error handling. Built to support mentoring activities — over 500 students trained in ML and AI through the 3MTT programme.</p>
@@ -520,9 +641,9 @@
       <h2 class="contact-title">Let's build something together</h2>
       <p class="contact-sub">I am open to full-time roles, freelance projects, and collaborations. If you have a data problem that needs solving, let's talk.</p>
       <div class="contact-links">
-        <a href="https://www.linkedin.com/in/hart-ofigwe" target="_blank" class="contact-card">💼 LinkedIn</a>
-        <a href="https://github.com/Hartyplaza" target="_blank" class="contact-card">💻 GitHub</a>
-        <a href="mailto:ofigwehart@gmail.com" class="contact-card">✉️ Email</a>
+        <a href="https://www.linkedin.com/in/hart-ofigwe" target="_blank" class="contact-card">LinkedIn</a>
+        <a href="https://github.com/Hartyplaza" target="_blank" class="contact-card">GitHub</a>
+        <a href="mailto:ofigwehart@gmail.com" class="contact-card">Email</a>
       </div>
       <a href="https://github.com/Hartyplaza" target="_blank" class="btn-primary" style="font-size:1rem;padding:0.9rem 2.5rem">View All Projects on GitHub</a>
     </div>
