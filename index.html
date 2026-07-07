@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ofigwe Hart — Data Scientist / ML Engineer</title>
+<title>Ofigwe Hart — Data Scientist / ML Engineer / AI Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -179,7 +179,7 @@
         <div class="hero-tag">Available for opportunities</div>
         <h1 class="hero-title">Ofigwe<br><span class="line2">Hart.</span></h1>
         <p style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);margin-bottom:1rem;letter-spacing:0.05em">Data Scientist / ML Engineer</p>
-        <p class="hero-desc">Building end-to-end machine learning systems that solve real business problems — from raw data to production-ready models with explainable predictions.</p>
+        <p class="hero-desc">Building end-to-end machine learning systems that solve real business problems, from raw data to production-ready models with explainable predictions.</p>
         <div class="hero-cta">
           <a href="#projects" class="btn-primary">View Projects</a>
           <a href="https://github.com/Hartyplaza" target="_blank" class="btn-ghost">GitHub</a>
@@ -224,15 +224,15 @@
         <p class="section-eyebrow">// about me</p>
         <div class="section-divider"></div>
         <h2 class="section-title">Turning data into decisions</h2>
-        <p class="about-text">I am a Data Scientist and ML Engineer with a background in Civil Engineering — combining analytical reasoning and technical expertise to solve real-world problems using data.</p>
+        <p class="about-text">I am a Data Scientist and ML Engineer with a background in Civil Engineering, combining analytical reasoning and technical expertise to solve real-world problems using data.</p>
         <p class="about-text">My work covers supervised and unsupervised learning, NLP, computer vision, extreme class imbalance, cost-sensitive model evaluation, and SHAP explainability. I believe every prediction should be understandable by the people who act on it.</p>
         <p class="about-text">Currently a Data Scientist at PSP Analytics Ltd, where I build computer vision models using transfer learning (ResNet) and lead end-to-end ML pipelines. I also contributed to the Omdena global data science community, building preprocessing pipelines for Nigeria's economic price surge analysis.</p>
         <p class="about-text">Pursuing an MSc in Financial Engineering at WorldQuant University. Based in Cross River State, Nigeria. Open to remote opportunities worldwide.</p>
         <div class="about-stats">
-          <div class="stat-box"><div class="stat-num">8+</div><div class="stat-desc">End-to-end ML projects deployed</div></div>
+          <div class="stat-box"><div class="stat-num">9+</div><div class="stat-desc">End-to-end ML projects deployed</div></div>
           <div class="stat-box"><div class="stat-num">500+</div><div class="stat-desc">Students mentored in ML/AI (3MTT)</div></div>
           <div class="stat-box"><div class="stat-num">1M+</div><div class="stat-desc">Records processed across projects</div></div>
-          <div class="stat-box"><div class="stat-num">5</div><div class="stat-desc">Live production deployments</div></div>
+          <div class="stat-box"><div class="stat-num">6</div><div class="stat-desc">Live production deployments</div></div>
         </div>
       </div>
       <div>
@@ -251,7 +251,7 @@
 <span class="code-cm"># NLP — fine-tuned RoBERTa on bank reviews</span><br>
 <span class="code-kw">def</span> <span class="code-fn">classify_sentiment</span>(review):<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> roberta_pipeline(review, confidence=<span class="code-num">0.936</span>)<br><br>
-<span class="code-cm"># Result: 8 projects, 5 live deployments</span>
+<span class="code-cm"># Result: 9 projects, 6 live deployments</span>
           </div>
         </div>
       </div>
@@ -602,12 +602,53 @@
       </div>
     </div>
 
+    <!-- BayesTest -->
+    <div class="project-card reverse reveal">
+      <div class="project-visual">
+        <div class="proj-mockup">
+          <div class="proj-mockup-bar">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--muted);margin-left:8px">bayestest — posterior</span>
+          </div>
+          <div style="padding:0.5rem 0 0.6rem">
+            <svg viewBox="0 0 260 70" style="width:100%;height:60px">
+              <polyline points="10,60 40,58 70,40 100,15 130,20 160,35 190,55 220,62 250,63" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
+              <polyline points="10,62 40,60 70,50 120,10 150,15 180,45 210,60 250,64" fill="none" stroke="var(--orange)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <div style="display:flex;justify-content:space-between;margin-top:0.2rem">
+              <span style="font-size:0.6rem;color:var(--accent2);font-family:'JetBrains Mono',monospace">control</span>
+              <span style="font-size:0.6rem;color:var(--orange);font-family:'JetBrains Mono',monospace">treatment</span>
+            </div>
+          </div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">P(Treatment &gt; Control)</span><span style="color:var(--orange);font-size:0.72rem;font-weight:600">11.2%</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Cohen's h</span><span style="color:var(--text);font-size:0.72rem">-0.0046</span></div>
+          <div class="proj-row"><span style="color:var(--muted);font-size:0.72rem">Naive peeking false positive rate</span><span style="color:var(--red);font-size:0.72rem;font-weight:600">24.6%</span></div>
+        </div>
+      </div>
+      <div class="project-info">
+        <div class="project-num">08 / A/B TESTING &amp; EXPERIMENTATION</div>
+        <h3 class="project-title">BayesTest</h3>
+        <p class="project-sub">Bayesian Inference + Frequentist Testing + Sequential Monitoring + Streamlit</p>
+        <p class="project-desc">An A/B testing intelligence platform that reconciles frequentist hypothesis testing, Bayesian inference, and sequential monitoring into a single decision. Simulated the risk of naive daily peeking (false positive rate inflates from an expected 5% to ~25%) and implemented O'Brien-Fleming alpha spending as the fix. Applied to a real 275,000-user e-commerce experiment, all methods converged on the same honest conclusion: no meaningful lift from the tested variant. Wrapped in a Streamlit dashboard supporting CSV upload, automatic data validation, and an interactive Bayesian prior.</p>
+        <div class="project-metrics">
+          <div class="pm-box"><div class="pm-val">275K</div><div class="pm-lbl">Users Tested</div></div>
+          <div class="pm-box"><div class="pm-val">11.2%</div><div class="pm-lbl">P(Treatment Better)</div></div>
+          <div class="pm-box"><div class="pm-val">4</div><div class="pm-lbl">Methods Reconciled</div></div>
+        </div>
+        <div class="project-stack"><span class="tag">SciPy</span><span class="tag">PyMC</span><span class="tag">Statsmodels</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Streamlit</span></div>
+        <div class="project-links">
+          <a href="https://bayestest-btu3zjmq4qywdtlu7bdpdi.streamlit.app/" target="_blank" class="link-btn link-live">Live Demo</a>
+          <a href="https://github.com/Hartyplaza/BayesTest" target="_blank" class="link-btn link-github">GitHub</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Other Projects -->
     <div style="margin-top:3rem" class="reveal">
       <p class="section-label">// other projects</p>
       <div class="projects-grid-sm">
         <div class="project-card-sm">
-          <div class="project-num">08 / DATA ANALYSIS</div>
+          <div class="project-num">09 / DATA ANALYSIS</div>
           <h3 class="project-title" style="font-size:1.2rem">Nigeria Price Surge Analysis</h3>
           <p class="project-sub">Omdena Collaborative Project · Streamlit</p>
           <p class="project-desc">Analysed the surge in prices across Nigeria and its economic impact on citizens' income, expenditures, and savings. Examined food, transportation, healthcare, and Naira-Dollar exchange rate movements to provide data-driven insights for stakeholders and policymakers.</p>
@@ -617,7 +658,7 @@
           </div>
         </div>
         <div class="project-card-sm">
-          <div class="project-num">09 / EDUCATION</div>
+          <div class="project-num">10 / EDUCATION</div>
           <h3 class="project-title" style="font-size:1.2rem">Python Beginners Tutorial</h3>
           <p class="project-sub">Comprehensive Learning Guide · Jupyter Notebook</p>
           <p class="project-desc">A structured, beginner-friendly guide to Python programming covering syntax, data types, control flow, functions, and error handling. Built to support mentoring activities — over 500 students trained in ML and AI through the 3MTT programme.</p>
